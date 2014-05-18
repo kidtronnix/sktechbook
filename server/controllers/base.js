@@ -12,7 +12,7 @@ module.exports = {
     },
     cv: {
         handler: function(request, reply){
-            reply.view('cv', {
+            reply.view('cv-print', {
                 title: 'This is the example about page'
             });
         },

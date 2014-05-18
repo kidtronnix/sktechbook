@@ -6,7 +6,7 @@ var Hapi = require('hapi'),
     routes = require('./server/config/routes');
 
 // Create a server with a host, port, and options
-var server = Hapi.createServer('0.0.0.0', config.port, config.hapi.options);
+var server = Hapi.createServer('127.0.0.1', config.port, config.hapi.options);
 
 // Bootstrap Hapi Server Plugins, passes the server object to the plugins
 require('./server/config/plugins')(server);
