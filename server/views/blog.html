@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://www.bootply.com/render/91970# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         
+        <meta charset="utf-8">
+        <title>Simon Maxwell-Stewart</title>
+        <meta name="generator" content="Bootply">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+        
+        <!--[if lt IE 9]>
+          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <link rel="apple-touch-icon" href="http://www.bootply.com/bootstrap/img/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="http://www.bootply.com/bootstrap/img/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="http://www.bootply.com/bootstrap/img/apple-touch-icon-114x114.png">
+
+
+
+
+
+
+
+
+
+
+        <!-- CSS code from Bootply.com editor -->
+        
+        <style type="text/css">
+            /*
+A custom Bootstrap 3.1 'Holo' style theme
+from http://bootply.com
+
+This CSS code should follow the 'bootstrap.css'
+in your HTML file.
+
+license: MIT
+author: bootply.com
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+
+html,body {
+  height: 100%;
+  font-family: 'Droid Sans Mono', sans-serif;
+}
+
+p,h1,h2,h3,h4 {
+  font-family: 'Droid Sans Mono', sans-serif;
+}
+
+hr {
+  border-color:#191919;
+}
+
+/* wrapper for page content to push down footer */
+.page-container {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* negative indent footer by its height */
+  margin: 0 auto -120px;
+  /* pad bottom by footer height */
+  padding: 0 0 120px;
+}
+
+/* set the fixed height of the footer here */
+footer {
+  height: 120px;
+  background-color: #222222;
+  border:0 solid #080808;
+  border-top-width: 1px;
+  margin-top:50px;
+}
+
+footer > .container {
+  padding: 20px;
+}
+
+body {
+  padding-top: 51px; 
+  background: #1E1E1E;
+  color: #f9f9f9;
+}
+a {
+  color:#bcbcbc;
+}
+.text-center {
+  padding-top: 20px;
+}
+
+#sidebar {
+  height: 100%;
+  padding-right: 0;
+  padding-top: 20px;
+}
+
+#sidebar .affix {
+  position:fixed;
+  top:55;
+  width:220px;
+}
+
+#sidebar .affix-bottom {
+  position:fixed;
+  top:55;
+  width:220px;
+}
+
+#sidebar .nav {
+  width: 95%;
+}
+#sidebar li {
+  border:0 #1e1e1e solid;
+  border-bottom-width:1px;
+}
+#sidebar li a {
+  padding-left:1px;
+}
+#sidebar li a:hover {
+  background-color:#222222;
+  color:#ffffff;
+}
+
+/* collapsed sidebar styles */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -41.6%;
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -41.6%;
+  }
+  .row-offcanvas-right.active {
+    right: 41.6%;
+  }
+  .row-offcanvas-left.active {
+    left: 41.6%;
+  }
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 41.6%;
+  }
+  #sidebar {
+    background-color:#3b3b3b;
+    padding-top:0;
+  }
+  #sidebar .nav>li {
+    color: #ddd;
+    background: linear-gradient(#3E3E3E, #383838);
+    border-top: 1px solid #484848;
+    border-bottom: 1px solid #2E2E2E;
+    padding-left:10px;
+  }
+  #sidebar .nav>li:first-child {
+    border-top:0;
+  }
+  #sidebar .nav>li>a {
+    color: #ddd;
+  }
+  #sidebar .nav>li>a>img {
+    max-width: 14px;
+  }
+  #sidebar .nav>li>a:hover, #sidebar .nav>li>a:focus {
+    text-decoration: none;
+    background: linear-gradient(#373737, #323232);
+    color: #fff;  
+  }
+  #sidebar .nav .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+  }
+  #sidebar .nav a:hover .caret{
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+  }
+}
+
+/* theme */
+.btn,.form-control,.alert,.progress,.panel,.list-group,.well,.list-group-item:first-child {border-radius:1px;box-shadow:0 0 0;}
+.btn {border-color:transparent;}
+.btn-default,.well {
+  background-color:#cccccc;
+  border-color:#c0c0c0;
+}
+.btn-primary,.label-primary,.list-group-item.active,.list-group-item.active:hover,.list-group-item.active:focus,.btn.active,a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {
+   background-color:#0099CC;
+   border-color:transparent;
+}
+.btn-info,.label-info,.progress-bar-info {
+  background-color:#33b5e5;
+}
+.btn-success,.label-success,.progress-bar-success {
+  background-color:#669900;
+}
+.btn-danger,.label-danger,.progress-bar-danger {
+  background-color:#FF4444;
+}
+.btn-warning,.label-warning,.progress-bar-warning {
+  background-color:#FFBB33;
+  color:#444444;
+}
+.nav-tabs>li>a {
+  border-radius:0;
+}
+     
+h3,h4,h5,.panel {
+   color:#555555;
+}
+.panel hr {
+   border-color:#efefef;
+}
+
+
+
+
+        </style>
+    <style type="text/css"></style></head>
+    
+    <!-- HTML code from Bootply.com editor -->
+    
+    <body>
+        
+        <div class="page-container">
+  
+	<!-- top navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    	<div class="navbar-header">
+           <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="./blog_files/blog.html">Simon Maxwell-Stewart</a>
+    	</div>
+    </nav>
+      
+    <div class="container-fluid">
+      <div class="row row-offcanvas row-offcanvas-left">
+        
+        <!--sidebar-->
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <div data-spy="affix" data-offset-top="45" data-offset-bottom="90" class="affix-top">
+            <ul class="nav" id="sidebar-nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="/fap">Fap Searches</a></li>
+              <li><a href="/cv">CV</a></li>
+            </ul>
+           </div>
+        </div><!--/sidebar-->
+  	
+        <!--/main-->
+        <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
+
+            <h1 id="section2">My Sketchbook</h1>
+            <p>Hi, this gives some idea of the things that i am up to. I get kinda distracted by a bunch of things,
+                so don't be surprised to see a pretty random mix of, comedy, programming, history and other stuff.
+                Hit me up on my chat if you wanna speak and I am online.
+            </p>
+            <p>&nbsp;</p>
+          <div class="row">
+           	 <div class="col-sm-6">
+
+                <div class="panel panel-default">
+                  <div class="panel-heading"><h4>My latest research</h4></div>
+                    <div class="panel-body">
+                      <p><img src="/images/es.png" alt="elasticsearch."/></p>
+                      <p>ElasticSearch is an amazing new tool to allow super simple and flexible searches through complex data.</p>
+                      <p>So I used it to take a look at what people are looking for when diddling and fapping. It's called Fap Search...</p>
+                      <button class="btn btn-primary pull-left" type="button">Check it out</button>
+                    </div><!--/panel-body-->
+                </div><!--/panel-->
+             
+
+            </div><!--/col-->
+            
+            <div class="col-sm-6">
+                 <div class="well"> 
+                     <form class="form">
+                      <h4>Chat?</h4>
+                      <div class="input-group text-center">
+                      <input type="text" class="form-control input-lg" title="Don&#39;t worry. We hate spam, and will not share your email with anyone." placeholder="Enter your email address">
+                        <span class="input-group-btn"><button class="btn btn-lg btn-primary" type="button">OK</button></span>
+                      </div>
+                    </form>
+                 </div><!--/well-->
+        
+                 <div class="panel panel-default">
+                   <div class="panel-heading"><a href="https://www.youtube.com/channel/UCAIgkKUqxZ8BR8b_gVhdO3Q" class="pull-right">View all</a> <h4>New Comedy</h4></div>
+                    <div class="panel-body">
+                        <iframe width="420" height="315" src="//www.youtube.com/embed/gqNCv64XSv4" frameborder="0" allowfullscreen></iframe>
+
+                    </div><!--/panel-body-->
+                 </div><!--/panel-->
+              </div><!--/col-->
+          </div><!--/row-->
+      </div><!--/.row-->
+    </div>
+  </div><!--/.container-->
+</div><!--/.page-container-->
+  
+<footer><!--footer-->
+  <div class="container">
+      	<div class="row">
+          <ul class="list-unstyled text-right">
+            <li class="col-sm-4 col-xs-6">
+              <a href="./blog_files/blog.html">Home</a>
+            </li>
+            <li class="col-sm-4 col-xs-6">
+              <a href="./blog_files/blog.html">CV</a>
+            </li>
+            <li class="col-sm-4 col-xs-6">
+              <a href="./blog_files/blog.html">Fap Searches</a>
+            </li>
+          </ul>
+		</div><!--/row-->
+    </div><!--/container-->
+</footer>
+
+
+
+
+
+
+
+
+        
+        <!-- JavaScript jQuery code from Bootply.com editor  -->
+        <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+        
+        $(document).ready(function() {
+        
+            $('[data-toggle=offcanvas]').click(function() {
+  $('.row-offcanvas').toggleClass('active');
+});
+
+$('.btn-toggle').click(function() {
+  $(this).find('.btn').toggleClass('active').toggleClass('btn-default').toggleClass('btn-primary');
+});
+
+        
+        });
+        
+        </script>
+        
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-40413119-1', 'bootply.com');
+          ga('send', 'pageview');
+        </script>
+        <!-- Quantcast Tag -->
+        <script type="text/javascript">
+        var _qevents = _qevents || [];
+        
+        (function() {
+        var elem = document.createElement('script');
+        elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+        elem.async = true;
+        elem.type = "text/javascript";
+        var scpt = document.getElementsByTagName('script')[0];
+        scpt.parentNode.insertBefore(elem, scpt);
+        })();
+        
+        _qevents.push({
+        qacct:"p-0cXb7ATGU9nz5"
+        });
+        </script>
+    
+</body></html>

@@ -11,13 +11,18 @@ module.exports = function(server) {
     var routeTable = [
         {
             method: 'GET',
-            path: '/about',
-            config: controller.base.about
+            path: '/',
+            config: controller.base.index
         },
         {
             method: 'GET',
-            path: '/',
-            config: controller.base.index
+            path: '/fap',
+            config: controller.base.fap
+        },
+        {
+            method: 'GET',
+            path: '/cv',
+            config: controller.base.cv
         },
         {
             method: 'GET',

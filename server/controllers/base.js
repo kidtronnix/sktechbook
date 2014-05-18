@@ -2,8 +2,7 @@
 module.exports = {
     index: {
         handler: function(request, reply){
-          // Render the view with the custom greeting
-            reply.view('index', {
+            reply.view('blog', {
                 title: 'Awesome Boiler Plate Homepage'
             });
         },
@@ -11,14 +10,24 @@ module.exports = {
             name: 'index'
         }
     },
-    about: {
+    cv: {
         handler: function(request, reply){
-            reply.view('about', {
+            reply.view('cv', {
                 title: 'This is the example about page'
             });
         },
         app: {
-            name: 'about'
+            name: 'cv'
+        }
+    },
+    fap: {
+        handler: function(request, reply){
+            reply.view('fap', {
+                title: 'This is the example about page'
+            });
+        },
+        app: {
+            name: 'fap'
         }
     },
     missing: {
