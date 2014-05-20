@@ -132,7 +132,6 @@ a {
 
 
 
-
 /* bootstrap overrides */
 
 h1,h2,h3, .fap-segment {
@@ -256,95 +255,25 @@ h5.fap-segment {
                           </div>
                         </div>
                         <!-- Terms #1 to 3 -->
-                        <div class="row">    
-                          <div class="col-sm-4 text-center">
-                            <h4>Sex</h4>
+                        <div class="row" id="frequent-global-terms">
 
-                              <canvas id="per-1" height="130" width="130"></canvas>
-                              <br><p>16%</p>
-
-                          </div>
-                          <div class="col-sm-4 text-center">
-                            <h4>Anal</h4>
-                              <canvas id="per-2" height="130" width="130"></canvas>
-                              <br><p>16%</p>
-
-                          </div>
-                          <div class="col-sm-4 text-center">
-                            <h4>Black</h4>
-                              <canvas id="per-3" height="130" width="130"></canvas>
-                              <br><p>16%</p>
-                          </div>
                         </div>
 
-                        <!-- Terms #4 to 6 -->
-                        <div class="row">
-                            <div class="col-sm-4 text-center">
-                                <h4>Pussy</h4>
 
-                                <canvas id="per-4" height="130" width="130"></canvas>
-                                <br><p>16%</p>
-
-                            </div>
-                            <div class="col-sm-4 text-center">
-                                <h4>Lesbian</h4>
-                                <canvas id="per-5" height="130" width="130"></canvas>
-                                <br><p>16%</p>
-                            </div>
-                            <div class="col-sm-4 text-center">
-                                <h4>in</h4>
-                                <canvas id="per-6" height="130" width="130"></canvas>
-                                <br><p>16%</p>
-                            </div>
-                        </div>
 
                         <div class="col-sm-12">
                             <div class="page-header text-muted divider" id="data-summary" >
                                 Segment Summary
                             </div>
                         </div>
+                        <div class="col-sm-12">
+                            <p>
+                                This is NOT the sexuality of the person searching PORNMD. This IS the segment of PORNMD the person was searching from.
+                            </p>
+                        </div>
                         <!-- Terms #4 to 6 -->
-                        <div class="row">
-                            <div class="col-sm-12"><p>This is NOT the sexuality of the person searching PORNMD. This IS the segment of PORNMD the person was searching from.</p><br/></div>
-                            <div class="col-sm-4 text-center">
-                                <h4>Straight</h4>
+                        <div class="row" id="frequent-segment-terms">
 
-                                <canvas id="per-7" height="130" width="130"></canvas>
-                                <br><p>16%</p><br/>
-                                <h5>Frequent Associated Terms</h5>
-
-                                <p> sex<br>
-                                    sex<br>
-                                    sex<br>
-                                    sex
-                                </p>
-
-
-                            </div>
-                            <div class="col-sm-4 text-center">
-                                <h4>Trans</h4>
-                                <canvas id="per-8" height="130" width="130"></canvas>
-                                <br><p>16%</p><br/>
-                                <h5>Frequent Associated Terms</h5>
-
-                                <p> sex<br>
-                                    sex<br>
-                                    sex<br>
-                                    sex
-                                </p>
-                            </div>
-                            <div class="col-sm-4 text-center">
-                                <h4>Gay</h4>
-                                <canvas id="per-9" height="130" width="130"></canvas>
-                                <br><p>16%</p><br/>
-                                <h5>Frequent Associated Terms</h5>
-
-                                <p> sex<br>
-                                    sex<br>
-                                    sex<br>
-                                    sex
-                                </p>
-                            </div>
                         </div>
 
 
@@ -377,35 +306,32 @@ h5.fap-segment {
         <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
         <script src="js/Chart.js"></script>
+        <script src="js/numeral.js"></script>
         <script type='text/javascript'>
         
         $(document).ready(function() {
 
             // Make donut charts on page
-            function makeDonut(index, percent) {
-                index++;
-                var donutData = [
-                    {
-                        value: percent,
-                        color:"#1abc9c"
-                    },
-                    {
-                        value : 100 - percent,
-                        color : "#ecf0f1"
-                    }
-                ]
+            function makeDonut(term, percent) {
 
-                var _donut = new Chart(document.getElementById("per-"+index).getContext("2d")).Doughnut(donutData);
+
+                var _donut = '<div class="col-sm-4 text-center">';
+                _donut += '<h4>'+term+'</h4>';
+                _donut += '<canvas id="per-'+term+'" height="130" width="130"></canvas>';
+                _donut += '<br><p>'+percent+'%</p></div>';
+
+
+
                 return _donut;
             }
 
-            var percentages = [10,20,30,40,50,60,66,67,56];
-            var donuts = [];
-            $.each(percentages, function(index, value) {
-                var donut = makeDonut(index, value)
-                donuts.push(donut);
-
-            });
+//            var percentages = [10,20,30,40,50,60,66,67,56];
+//            var donuts = [];
+//            $.each(percentages, function(index, value) {
+//                var donut = makeDonut(index, value)
+//                donuts.push(donut);
+//
+//            });
 
             // Make ajax call
 
@@ -454,7 +380,7 @@ h5.fap-segment {
                         "global_keywords": {
                             "terms": {
                                 "field": "keyword",
-                                "size": 3
+                                "size": 6
                             }
                         },
                         "segments": {
@@ -498,20 +424,87 @@ h5.fap-segment {
 
             function displayData(data) {
                 $('#search-results').html('');
+                $('#frequent-global-terms').html('');
                 var total = data.hits.total;
-                // Okay make hits
+
+                // Searches
                 $.each(data.hits.hits, function(index, hit) {
                     var hit = makeHit(hit);
-                    console.log(hit);
                     $('#search-results').append(hit);
                 });
 
-                $.each(data.hits.hits, function(index, hit) {
-                    var hit = makeHit(hit);
-                    console.log(hit);
-                    $('#search-results').append(hit);
+                // Frequent Terms
+                $.each(data.aggregations.global_keywords.buckets, function(index, bucket) {
+
+
+                    var termStat = makeTermStat(bucket, total);
+
+
+                    var donut = makeDonut(termStat.key, termStat.percent);
+                    var doughnutData = [
+                        {
+                            value: parseInt(termStat.percent),
+                            color:"#1abc9c"
+                        },
+                        {
+                            value : parseInt(100 - termStat.percent),
+                            color : "#ecf0f1"
+                        }
+                    ];
+
+
+                    $('#frequent-global-terms').append(donut);
+                    var myDoughnut = new Chart(document.getElementById("per-"+termStat.key).getContext("2d")).Doughnut(doughnutData);
+//                    var donut =
+//                    console.log('Donut index: '+index+" Percent: "+termStat.percent);
+
                 });
 
+                // Segment Summary
+                $.each(data.aggregations.segment_report.buckets, function(index, bucket) {
+
+
+                    var termStat = makeTermStat(bucket, total);
+
+                    // Ammend bucket name to something more readable
+                    switch( termStat.key) {
+                        case 's':
+                            termStat.key = 'Straight';
+                            break;
+                        case 'g':
+                            termStat.key = 'Gay';
+                            break;
+                        default:
+                            termStat.key = 'Trans';
+                    }
+                    
+                    var donut = makeDonut(termStat.key, termStat.percent);
+                    var doughnutData = [
+                        {
+                            value: parseInt(termStat.percent),
+                            color:"#1abc9c"
+                        },
+                        {
+                            value : parseInt(100 - termStat.percent),
+                            color : "#ecf0f1"
+                        }
+                    ];
+
+                    console.log(doughnutData);
+                    $('#frequent-segment-terms').append(donut);
+                    var myDoughnut = new Chart(document.getElementById("per-"+termStat.key).getContext("2d")).Doughnut(doughnutData);
+//                    var donut =
+//                    console.log('Donut index: '+index+" Percent: "+termStat.percent);
+
+                });
+
+
+
+            }
+            function makeTermStat(term, total) {
+                var percent = (term.doc_count/total)*100
+                term.percent = numeral(percent).format('0');
+                return term;
             }
 
 
@@ -546,6 +539,7 @@ h5.fap-segment {
                 output += '</div>';
                 return output;
             }
+
 
 
 
