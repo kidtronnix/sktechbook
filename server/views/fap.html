@@ -220,12 +220,7 @@ h5.fap-segment {
                 </ul>
                 <ul class="nav hidden-xs" id="sidebar-footer">
                     <li>
-
-
                           <p><a href="http://pornmd.com/getliveterms">Data</a> from the <i class="glyphicon glyphicon-heart-empty"></i> <a href="http://pornmd.com">PORNMD Network</a></p>
-
-
-
                     </li>
                 </ul>
             </div>
@@ -336,26 +331,21 @@ h5.fap-segment {
             // Make ajax call
 
             function makePayload(search) {
-                var payload = {"size": 10};
+                var payload = {
+                    "size": 10,
+                    "sort" : {
+                        "_script" : {
+                            "script" : "Math.random()",
+                            "type" : "number",
+                            "params" : {},
+                            "order" : "asc"
+                        }
+                    }
+                };
 
                 if(search) {
                     var searchTemplate = {
-                        "query": {
-                            "filtered": {
-                                "query": {
-                                    "match_all": {}
-                                },
-                                "filter": {
-                                    "and": [
-                                        {
-                                            "term": {
-                                                "keyword": search
-                                            }
-                                        }
-                                    ]
-                                }
-                            }
-                        }
+                        "query" : { "query_string" : {"query" : "keyword:"+search} }
                     }
 
                     $.extend( payload, searchTemplate );

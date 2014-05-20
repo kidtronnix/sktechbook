@@ -36,4 +36,11 @@ module.exports = function(server) {
             console.log('Failed loading plugin hapi-cache-buster');
         }
     });
+
+    // Require the Hapi plugin 'Hapi Cache Buster' for asset busting in the view templates. https://github.com/poeticninja/hapi-cache-buster
+    server.pack.require('../plugins/hophophop', function(err){
+        if(err){
+            console.log('Failed loading plugin hophophop');
+        }
+    });
 };
