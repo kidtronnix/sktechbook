@@ -135,7 +135,7 @@ a {
 
 /* bootstrap overrides */
 
-h1,h2,h3 {
+h1,h2,h3, .fap-segment {
    font-weight:800;
    font-family:'Open Sans',arial,sans-serif;
 }
@@ -162,6 +162,27 @@ h1,h2,h3 {
 small.text-muted {
   font-family:courier,courier-new,monospace;
 }
+.questions {
+ margin-top: 80%;
+}
+h5.fap-segment {
+    ine-height: 50px;
+    font-size: 25px;
+    color: white;
+
+}
+            .segment-con {
+
+                width: 50px;
+                height: 50px;
+                font-size: 40px;
+                border-radius: 25px;
+
+                background: blue;
+                text-align: center;
+                margin-top: 15px;
+            }
+
 
         </style>
     </head>
@@ -176,16 +197,36 @@ small.text-muted {
           
             <!-- sidebar -->
             <div class="column col-sm-3" id="sidebar">
-                <a class="logo" href="#">B</a>
+                <h3>Fap Searches</h3>
+
+                <p>What people try and find to get off to...</p>
+
+                <form class="search">
+                    <div class="input-group">
+                        <input type="search" class="form-control" id="search_term" placeholder="enter single search term"/>
+                        <span class="input-group-btn">
+                            <input type="submit" id="report" class="btn btn-default" value="Go!">
+                        </span>
+                    </div><!-- /input-group -->
+
+                </form>
+
+
+                <h4 class="questions">Questions</h4>
                 <ul class="nav">
-                    <li class="active"><a href="#featured">Featured</a>
+                    <li class="active"><a href="#dataset">What am I searching through?</a>
                     </li>
-                    <li><a href="#stories">Stories</a>
+                    <li><a href="#stories">Who built this?</a>
                     </li>
                 </ul>
                 <ul class="nav hidden-xs" id="sidebar-footer">
                     <li>
-                      <a href="http://www.bootply.com"><h3>Fap Searches</h3>From the <i class="glyphicon glyphicon-heart-empty"></i> PORNMD Network</a>
+
+
+                          <p><a href="http://pornmd.com/getliveterms">Data</a> from the <i class="glyphicon glyphicon-heart-empty"></i> <a href="http://pornmd.com">PORNMD Network</a></p>
+
+
+
                     </li>
                 </ul>
             </div>
@@ -196,165 +237,132 @@ small.text-muted {
                 <div class="padding">
                     <div class="full col-sm-9">
                       
-                        <!-- content -->
+
                         
-                        <div class="col-sm-12" id="featured">   
-                          <div class="page-header text-muted">
-                          Featured
-                          </div> 
-                        </div>
-                        
-                        <!--/top story-->
-                        <div class="row">    
-                          <div class="col-sm-10">
-                            <h3>This is Some Awesome Featured Content</h3>
-                            <h4><span class="label label-default">techvisually.com</span></h4><h4>
-                            <small class="text-muted">1 hour ago • <a href="#" class="text-muted">Read More</a></small>
-                            </h4>
-                          </div>
-                          <div class="col-sm-2">
-                            <a href="#" class="pull-right"><img src="http://www.bootply.com/assets/example/bg_sailboat.jpg" class="img-circle"></a>
-                          </div> 
-                        </div>
-                        
-                        <div class="col-sm-12" id="stories">  
+                        <div class="col-sm-12" id="searches">
                           <div class="page-header text-muted divider">
-                            Top Stories
+                            Searches
                           </div>
                         </div>
-                        
-                        
-                        <!--/stories-->
-                        <div class="row">    
-                          <div class="col-sm-10">
-                            <h3>Dramatically Raise the Value of Any Piece of Content</h3>
-                            <h4><span class="label label-default">searchenginewatch.com</span></h4><h4>
-                            <small class="text-muted">1 hour ago • <a href="#" class="text-muted">Read More</a></small>
-                            </h4>
-                          </div>
-                          <div class="col-sm-2">
-                            <a href="#" class="pull-right"><img src="http://www.bootply.com/assets/example/bg_dogcat.jpg" class="img-circle"></a>
-                          </div> 
-                        </div>
-                        
-                        <div class="row divider">    
-                           <div class="col-sm-12"><hr></div>
-                        </div>
-                        
-                        <div class="row">    
-                          <div class="col-sm-10">
-                            <h3>14 Useful Sites for Designers</h3>
-                            <h4><span class="label label-default">devgarage.com</span></h4><h4>
-                            <small class="text-muted">2 days ago • <a href="#" class="text-muted">Read More</a></small>
-                            </h4>
-                          </div>
-                          <div class="col-sm-2">
-                            <a href="#" class="pull-right"><img src="http://www.bootply.com/assets/example/bg_suburb.jpg" class="img-circle"></a>
-                          </div>
-                        </div>
-                        
-                        <div class="row divider">    
-                           <div class="col-sm-12"><hr></div>
-                        </div>
-                        
-                        <div class="row">    
-                          <div class="col-sm-10">
-                            <h3>Bootstrap Builders Get Their Own Playground</h3>
-                            <h4><span class="label label-default">bootply.com</span></h4><h4>
-                            <small class="text-muted">3 days ago • <a href="#" class="text-muted">Read More</a></small>
-                            </h4>
-                          </div>
-                          <div class="col-sm-2">
-                            <a href="#" class="pull-right"><img src="http://www.bootply.com/assets/example/bg_sailboat.jpg" class="img-circle"></a>
-                          </div>
-                        </div>
-                        
-                        <div class="row divider">    
-                           <div class="col-sm-12"><hr></div>
-                        </div>
-                        
-                        <div class="row">    
-                          <div class="col-sm-10">
-                            <h3>How to: Another Fantastical Article</h3>
-                            <h4><span class="label label-default">bootply.com</span></h4><h4>
-                            <small class="text-muted">4 days ago • <a href="#" class="text-muted">Read More</a></small>
-                            </h4>
-                          </div>
-                          <div class="col-sm-2">
-                            <a href="#" class="pull-right"><img src="//placehold.it/100" class="img-circle"></a>
-                          </div>
-                        </div>
-                        
-                        <div class="row divider">    
-                           <div class="col-sm-12"><hr></div>
-                        </div>
-                        
-                        <div class="row">    
-                          <div class="col-sm-9">
-                            <h3>Another Fantastical Article of Interest</h3>
-                            <h4><span class="label label-default">bootply.com</span></h4><h4>
-                            <small class="text-muted">4 days ago • <a href="#" class="text-muted">Read More</a></small>
-                            </h4>
-                          </div>
-                          <div class="col-sm-3">
-                            <a href="#" class="pull-right"><img src="//placehold.it/100" class="img-circle"></a>
-                          </div>
-                        </div>
+
+                        <span id="search-results">
+
+                        </span>
+
                         
                         <div class="col-sm-12">
                           <div class="page-header text-muted divider">
-                            Up Next
+                            Frequent Terms
                           </div>
                         </div>
-                      
+                        <!-- Terms #1 to 3 -->
                         <div class="row">    
                           <div class="col-sm-4 text-center">
-                            <h4>Related 1</h4>
-                            <a href="#"><img src="//placehold.it/100" class="img-circle"></a>
+                            <h4>Sex</h4>
+
+                              <canvas id="per-1" height="130" width="130"></canvas>
+                              <br><p>16%</p>
+
                           </div>
                           <div class="col-sm-4 text-center">
-                            <h4>Related 2</h4>
-                            <a href="#"><img src="//placehold.it/100" class="img-circle"></a>
+                            <h4>Anal</h4>
+                              <canvas id="per-2" height="130" width="130"></canvas>
+                              <br><p>16%</p>
+
                           </div>
                           <div class="col-sm-4 text-center">
-                            <h4>Related 3</h4>
-                            <a href="#"><img src="//placehold.it/100" class="img-circle"></a>
+                            <h4>Black</h4>
+                              <canvas id="per-3" height="130" width="130"></canvas>
+                              <br><p>16%</p>
                           </div>
                         </div>
-                      
-                      
-                        <div class="col-sm-12">
-                          <div class="page-header text-muted divider">
-                            Connect with Us
-                          </div>
-                        </div>
-                      
+
+                        <!-- Terms #4 to 6 -->
                         <div class="row">
-                          <div class="col-sm-6">
-                            <a href="#">Twitter</a> <small class="text-muted">|</small> <a href="#">Facebook</a> <small class="text-muted">|</small> <a href="#">Google+</a>
-                          </div>
+                            <div class="col-sm-4 text-center">
+                                <h4>Pussy</h4>
+
+                                <canvas id="per-4" height="130" width="130"></canvas>
+                                <br><p>16%</p>
+
+                            </div>
+                            <div class="col-sm-4 text-center">
+                                <h4>Lesbian</h4>
+                                <canvas id="per-5" height="130" width="130"></canvas>
+                                <br><p>16%</p>
+                            </div>
+                            <div class="col-sm-4 text-center">
+                                <h4>in</h4>
+                                <canvas id="per-6" height="130" width="130"></canvas>
+                                <br><p>16%</p>
+                            </div>
                         </div>
-                        
-                        <hr>
-                      
-                        <div class="row" id="footer">    
+
+                        <div class="col-sm-12">
+                            <div class="page-header text-muted divider" id="data-summary" >
+                                Segment Summary
+                            </div>
+                        </div>
+                        <!-- Terms #4 to 6 -->
+                        <div class="row">
+                            <div class="col-sm-12"><p>This is NOT the sexuality of the person searching PORNMD. This IS the segment of PORNMD the person was searching from.</p><br/></div>
+                            <div class="col-sm-4 text-center">
+                                <h4>Straight</h4>
+
+                                <canvas id="per-7" height="130" width="130"></canvas>
+                                <br><p>16%</p><br/>
+                                <h5>Frequent Associated Terms</h5>
+
+                                <p> sex<br>
+                                    sex<br>
+                                    sex<br>
+                                    sex
+                                </p>
+
+
+                            </div>
+                            <div class="col-sm-4 text-center">
+                                <h4>Trans</h4>
+                                <canvas id="per-8" height="130" width="130"></canvas>
+                                <br><p>16%</p><br/>
+                                <h5>Frequent Associated Terms</h5>
+
+                                <p> sex<br>
+                                    sex<br>
+                                    sex<br>
+                                    sex
+                                </p>
+                            </div>
+                            <div class="col-sm-4 text-center">
+                                <h4>Gay</h4>
+                                <canvas id="per-9" height="130" width="130"></canvas>
+                                <br><p>16%</p><br/>
+                                <h5>Frequent Associated Terms</h5>
+
+                                <p> sex<br>
+                                    sex<br>
+                                    sex<br>
+                                    sex
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="row divider">
+                            <div class="col-sm-12"><hr></div>
+                        </div>
+                        <div class="row" id="footer">
                           <div class="col-sm-6">
-                            
+
                           </div>
                           <div class="col-sm-6">
                             <p>
-                            <a href="#" class="pull-right">©Copyright Inc.</a>
+                            <a href="/open-sources" class="pull-right">Built from open source projects.</a>
                             </p>
                           </div>
                         </div>
                       
-                      <hr>
-                      
-                      <h3 class="text-center">
-                      <a href="http://bootply.com/86704" target="ext">Download this Template</a>
-                      </h3>
-                        
-                      <hr>
+
                         
                       
                     </div><!-- /col-9 -->
@@ -368,9 +376,178 @@ small.text-muted {
         
         <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script src="js/Chart.js"></script>
         <script type='text/javascript'>
         
         $(document).ready(function() {
+
+            // Make donut charts on page
+            function makeDonut(index, percent) {
+                index++;
+                var donutData = [
+                    {
+                        value: percent,
+                        color:"#1abc9c"
+                    },
+                    {
+                        value : 100 - percent,
+                        color : "#ecf0f1"
+                    }
+                ]
+
+                var _donut = new Chart(document.getElementById("per-"+index).getContext("2d")).Doughnut(donutData);
+                return _donut;
+            }
+
+            var percentages = [10,20,30,40,50,60,66,67,56];
+            var donuts = [];
+            $.each(percentages, function(index, value) {
+                var donut = makeDonut(index, value)
+                donuts.push(donut);
+
+            });
+
+            // Make ajax call
+
+            function makePayload(search) {
+                var payload = {"size": 10};
+
+                if(search) {
+                    var searchTemplate = {
+                        "query": {
+                            "filtered": {
+                                "query": {
+                                    "match_all": {}
+                                },
+                                "filter": {
+                                    "and": [
+                                        {
+                                            "term": {
+                                                "keyword": search
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+
+                    $.extend( payload, searchTemplate );
+                }
+
+                // Add aggregations
+                var aggs = {
+                    "aggs": {
+                        "segment_report": {
+                            "terms": {
+                                "field": "segment"
+                            },
+                            "aggs": {
+                                "keywords": {
+                                    "terms": {
+                                        "field": "keyword",
+                                        "size": 3
+                                    }
+                                }
+                            }
+                        },
+                        "global_keywords": {
+                            "terms": {
+                                "field": "keyword",
+                                "size": 3
+                            }
+                        },
+                        "segments": {
+                            "terms": {
+                                "field": "segment"
+                            }
+                        }
+                    }
+                }
+
+                $.extend( payload, aggs );
+
+                return payload;
+
+
+            }
+
+            function getData(payload) {
+
+                console.log('making post: ');
+                console.log(JSON.stringify(payload));
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://107.170.98.45:9200/liveterms/porn/_search",
+                    data: JSON.stringify(payload),
+                    dataType: 'json'
+                })
+                .done(function( data ) {
+                    console.log( data );
+                    displayData(data)
+                });
+            }
+
+            $('form.search').on('submit', function(e) {
+                e.preventDefault();
+                var search = $('#search_term').val();
+                var post = makePayload(search);
+                getData(post);
+            });
+
+            function displayData(data) {
+                $('#search-results').html('');
+                var total = data.hits.total;
+                // Okay make hits
+                $.each(data.hits.hits, function(index, hit) {
+                    var hit = makeHit(hit);
+                    console.log(hit);
+                    $('#search-results').append(hit);
+                });
+
+                $.each(data.hits.hits, function(index, hit) {
+                    var hit = makeHit(hit);
+                    console.log(hit);
+                    $('#search-results').append(hit);
+                });
+
+            }
+
+
+            function makeHit(hit) {
+
+                switch(hit._source.segment) {
+                    case 's':
+                        var color = 'red';
+                        break;
+                    case 'g':
+                        var color = 'blue';
+                        break;
+                    default:
+                        var color = 'purple';
+                }
+                var time = new Date(hit._source.time);
+                var output = '<div class="row">';
+                output +=     '<div class="col-sm-10">';
+                output +=       '<h3>'+hit._source.keyword+'</h3>';
+                output += '<small class="text-muted">'+time.toUTCString()+'</small>';
+                output += '</h4>';
+                output +=  '</div>';
+                output += '<div class="col-sm-2">';
+                output += '<div class="segment-con pull-right" style="background: '+color+';">';
+                output += '<a href="#" class=" "><h5 class="fap-segment">'+hit._source.segment+'</h5></a>';
+                output += '</div>';
+                output += '</div>';
+                output += '</div>';
+
+                output += '<div class="row divider">';
+                output += '<div class="col-sm-12"><hr></div>';
+                output += '</div>';
+                return output;
+            }
+
+
 
             // similar behavior as an HTTP redirect
 
