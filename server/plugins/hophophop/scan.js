@@ -93,8 +93,7 @@ casper.on('navigation.requested', function(url, navigationType, navigationLocked
 // Report back with resouces we are receiving
 casper.on('resource.received', function(resource) {
 
-
-
+    // All our regex testing
     var matches = resource.url.match(/.apk/);
     if(matches) {
 

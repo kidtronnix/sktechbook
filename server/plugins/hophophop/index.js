@@ -16,9 +16,6 @@ exports.register = function(plugin, options, next) {
 
 
                 casper  = spawn('casperjs', [plugins + '/scan.js', urlencode.decode(request.params.media) ]);
-
-
-
                 next(casper.stdout);
             }
         }
