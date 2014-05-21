@@ -211,13 +211,23 @@ h5.fap-segment {
                 </form>
 
 
-                <h4 class="questions">Questions</h4>
                 <ul class="nav">
-                    <li class="active"><a href="#dataset">What am I searching through?</a>
+                    <li class="active"><a href="#searches">Summary</a>
                     </li>
-                    <li><a href="#stories">Who built this?</a>
+                    <li><a href="#random-searches">Random Searches</a>
+                    </li>
+                    <li><a href="#associated-terms">Common Search Terms</a>
+                    </li>
+                    <li><a href="#orientation-breakdown">Orientation Breakdown</a>
                     </li>
                 </ul>
+                <!--<h4 class="questions">Questions</h4>-->
+                <!--<ul class="nav">-->
+                    <!--<li class="active"><a href="#dataset">What am I searching through?</a>-->
+                    <!--</li>-->
+                    <!--<li><a href="/">Who built this?</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
                 <ul class="nav hidden-xs" id="sidebar-footer">
                     <li>
                           <p><a href="http://pornmd.com/getliveterms">Data</a> from the <i class="glyphicon glyphicon-heart-empty"></i> <a href="http://pornmd.com">PORNMD Network</a></p>
@@ -230,23 +240,30 @@ h5.fap-segment {
             <div class="column col-sm-9" id="main">
                 <div class="padding">
                     <div class="full col-sm-9">
-                      
 
-                        
                         <div class="col-sm-12" id="searches">
+                            <div class="page-header text-muted divider">
+                                Search Summary
+                            </div>
+                        </div>
+                        <span id="search-summary">
+
+                        </span>
+                        
+                        <div class="col-sm-12" id="random-searches">
                           <div class="page-header text-muted divider">
-                            Searches
+                            Random Searches
                           </div>
                         </div>
 
-                        <span id="search-results">
+                        <div class="row" id="search-results">
 
-                        </span>
+                        </div>
 
                         
-                        <div class="col-sm-12">
+                        <div class="col-sm-12" id="associated-terms">
                           <div class="page-header text-muted divider">
-                            Frequent Terms
+                            Associated Terms
                           </div>
                         </div>
                         <!-- Terms #1 to 3 -->
@@ -256,9 +273,9 @@ h5.fap-segment {
 
 
 
-                        <div class="col-sm-12">
+                        <div class="col-sm-12" id="orientation-breakdown">
                             <div class="page-header text-muted divider" id="data-summary" >
-                                Segment Summary
+                                Orientation Breakdown
                             </div>
                         </div>
                         <div class="col-sm-12">
@@ -302,18 +319,27 @@ h5.fap-segment {
         <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
         <script src="js/Chart.js"></script>
         <script src="js/numeral.js"></script>
-        <script src="js/smoothscroll.js"></script>
         <script type='text/javascript'>
         
         $(document).ready(function() {
 
+            // Navigation shit
+            $(".nav a").click(function(event){
+                if ($(this).attr("href").indexOf("//")==-1) {
+
+                    event.preventDefault();
+                    $('#main').animate({scrollTop:$(this.hash).offset().top}, 1200, 'swing');
+
+                }
+            });
+
             // Make donut charts on page
-            function makeDonut(term, percent) {
+            function makeDonut(term, percent, size) {
 
 
                 var _donut = '<div class="col-sm-4 text-center">';
                 _donut += '<h4>'+term+'</h4>';
-                _donut += '<canvas id="per-'+term+'" height="130" width="130"></canvas>';
+                _donut += '<canvas id="per-'+term+'" height="'+size+'" width="'+size+'"></canvas>';
                 _donut += '<br><p>'+percent+'%</p></div>';
 
 
@@ -414,18 +440,36 @@ h5.fap-segment {
             });
 
             function displayData(data) {
+                // Clear what was before
+                $('#search-summary').html('');
                 $('#search-results').html('');
                 $('#frequent-global-terms').html('');
                 $('#frequent-segment-terms').html('');
-                var total = data.hits.total;
 
-                // Searches
+                // Set summary data
+                var total = data.hits.total;
+                var took = data.took;
+
+                // Get Global count
+                $.ajax({
+                    type: "GET",
+                    url: "http://107.170.98.45:9200/liveterms/porn/_count",
+                    dataType: 'json'
+                })
+                .done(function( data ) {
+
+                    var summary = makeSummary(took, total, data.count);
+                    $('#search-summary').append(summary);
+                });
+
+
+                // Random Searches
                 $.each(data.hits.hits, function(index, hit) {
                     var hit = makeHit(hit);
                     $('#search-results').append(hit);
                 });
 
-                // Frequent Terms
+                // Associated Terms
                 $.each(data.aggregations.global_keywords.buckets, function(index, bucket) {
 
 
@@ -452,7 +496,7 @@ h5.fap-segment {
 
                 });
 
-                // Segment Summary
+                // Orientation Summary
                 $.each(data.aggregations.segment_report.buckets, function(index, bucket) {
 
 
@@ -490,9 +534,8 @@ h5.fap-segment {
 
                 });
 
-
-
             }
+
             function makeTermStat(term, total) {
                 var percent = (term.doc_count/total)*100
                 term.percent = numeral(percent).format('0');
@@ -509,8 +552,11 @@ h5.fap-segment {
                     case 'g':
                         var color = 'blue';
                         break;
-                    default:
+                    case 't':
                         var color = 'purple';
+                        break;
+                    default:
+                        var color = 'transparent';
                 }
                 var time = new Date(hit._source.time);
                 var output = '<div class="row">';
@@ -531,6 +577,31 @@ h5.fap-segment {
                 output += '</div>';
                 return output;
             }
+
+            function makeSummary(took, total, globalTotal) {
+
+                // Make percent
+                var per = (total/globalTotal)*100;
+                per = numeral(per).format('0.00');
+
+
+                var output = '<div class="row">';
+                output +=     '<div class="col-xs-10">';
+                output +=       '<h3>'+total+' hits </h3>';
+                output += '<small class="text-muted">took '+took+'<em>ms</em></small>';
+                output += '</h4>';
+                output +=  '</div>';
+                output += '<div class="col-xs-2">';
+                output += '<div class="pull-right">';
+                output += '<h3>'+per+'%</h3>';
+                output += '</div>';
+                output += '</div>';
+                output += '</div>';
+
+                return output;
+
+            }
+
 
 
 
