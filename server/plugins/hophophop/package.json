@@ -1,0 +1,19 @@
+{
+  "name": "hophophop",
+  "version": "0.0.0",
+  "description": "Media scanner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smaxwellstewart/hophophop.git"
+  },
+  "author": "Simon Maxwell-Stewart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smaxwellstewart/hophophop/issues"
+  },
+  "homepage": "https://github.com/smaxwellstewart/hophophop"
+}
