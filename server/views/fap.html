@@ -326,9 +326,9 @@ h5.fap-segment {
             // Navigation shit
             $(".nav a").click(function(event){
                 if ($(this).attr("href").indexOf("//")==-1) {
-
+                    console.log($(this.hash).offset().top);
                     event.preventDefault();
-                    $('#main').animate({scrollTop:$(this.hash).offset().top}, 1200, 'swing');
+                    $('#main').animate({scrollTop:$(this.hash).position().top}, 1200, 'swing');
                     $('body').animate({scrollTop:$('#sidebar').height()}, 1200, 'swing');
                 }
             });
@@ -533,6 +533,9 @@ h5.fap-segment {
 //                    console.log('Donut index: '+index+" Percent: "+termStat.percent);
 
                 });
+
+                // Scroll past sidebar for mobile users
+                $('body').animate({scrollTop:$('#sidebar').height()}, 1200, 'swing');
 
             }
 
