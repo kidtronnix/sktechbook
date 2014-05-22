@@ -476,7 +476,7 @@ h5.fap-segment {
                     var termStat = makeTermStat(bucket, total);
 
 
-                    var donut = makeDonut(termStat.key, termStat.percent);
+                    var donut = makeDonut(termStat.key, termStat.percent, 130);
                     var doughnutData = [
                         {
                             value: parseInt(termStat.percent),
@@ -514,7 +514,7 @@ h5.fap-segment {
                             termStat.key = 'Trans';
                     }
 
-                    var donut = makeDonut(termStat.key, termStat.percent);
+                    var donut = makeDonut(termStat.key, termStat.percent, 130);
                     var doughnutData = [
                         {
                             value: parseInt(termStat.percent),
@@ -526,7 +526,7 @@ h5.fap-segment {
                         }
                     ];
 
-                    console.log(doughnutData);
+
                     $('#frequent-segment-terms').append(donut);
                     var myDoughnut = new Chart(document.getElementById("per-"+termStat.key).getContext("2d")).Doughnut(doughnutData);
 //                    var donut =
@@ -536,6 +536,7 @@ h5.fap-segment {
 
                 // Scroll past sidebar for mobile users
                 $('body').animate({scrollTop:$('#sidebar').height()}, 1200, 'swing');
+                $('#main').animate({scrollTop:0}, 1200, 'swing');
 
             }
 
