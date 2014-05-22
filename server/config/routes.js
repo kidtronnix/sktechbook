@@ -16,6 +16,11 @@ module.exports = function(server) {
         },
         {
             method: 'GET',
+            path: '/fap-searches',
+            config: controller.base.fapsearches
+        },
+        {
+            method: 'GET',
             path: '/fap',
             config: controller.base.fap
         },

@@ -30,6 +30,16 @@ module.exports = {
             name: 'fap'
         }
     },
+    fapsearches: {
+        handler: function(request, reply){
+            reply.view('fap-searches', {
+                title: 'This is the example about page'
+            });
+        },
+        app: {
+            name: 'fap'
+        }
+    },
     missing: {
         handler: function(request, reply){
             reply.view('404', {
