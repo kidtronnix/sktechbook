@@ -71,7 +71,7 @@ a {
     right: 0;
     top: 0;
     /*background-image:url('http://www.bootply.com/assets/example/bg_suburb.jpg');*/
-    background-image:url('/images/bodies.jpg');
+    background-image:url('/images/abstract-bodies.jpg');
     background-size:cover;
     background-attachment:fixed;
     background-position: center;
@@ -214,11 +214,11 @@ h5.fap-segment {
                 <ul class="nav">
                     <li class="active"><a href="#searches">Summary</a>
                     </li>
-                    <li><a href="#random-searches">Random Searches</a>
+                    <li><a href="#random">Random Searches</a>
                     </li>
-                    <li><a href="#associated-terms">Common Search Terms</a>
+                    <li><a href="#associated">Common Search Terms</a>
                     </li>
-                    <li><a href="#orientation-breakdown">Orientation Breakdown</a>
+                    <li><a href="#orientation">Orientation Breakdown</a>
                     </li>
                 </ul>
                 <!--<h4 class="questions">Questions</h4>-->
@@ -250,7 +250,7 @@ h5.fap-segment {
 
                         </span>
                         
-                        <div class="col-sm-12" id="random-searches">
+                        <div class="col-sm-12" id="random">
                           <div class="page-header text-muted divider">
                             Random Searches
                           </div>
@@ -261,7 +261,7 @@ h5.fap-segment {
                         </div>
 
                         
-                        <div class="col-sm-12" id="associated-terms">
+                        <div class="col-sm-12" id="associated">
                           <div class="page-header text-muted divider">
                             Associated Terms
                           </div>
@@ -273,8 +273,8 @@ h5.fap-segment {
 
 
 
-                        <div class="col-sm-12" id="orientation-breakdown">
-                            <div class="page-header text-muted divider" id="data-summary" >
+                        <div class="col-sm-12" id="orientation">
+                            <div class="page-header text-muted divider" >
                                 Orientation Breakdown
                             </div>
                         </div>
@@ -329,7 +329,7 @@ h5.fap-segment {
 
                     event.preventDefault();
                     $('#main').animate({scrollTop:$(this.hash).offset().top}, 1200, 'swing');
-
+                    $('body').animate({scrollTop:$('#sidebar').height()}, 1200, 'swing');
                 }
             });
 
