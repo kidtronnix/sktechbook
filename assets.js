@@ -2,7 +2,7 @@
 module.exports = {
     development: {
         js: ['js/test-one.js', 'js/test-two.js'],
-        css: ['css/test-one.css', 'css/test-two.css']
+        css: ['css/pageslide.css']
     },
     production: {
         js: ['js/scripts.js'],

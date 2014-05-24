@@ -228,7 +228,7 @@ h5.fap-segment {
                     <!--<li><a href="/">Who built this?</a>-->
                     <!--</li>-->
                 <!--</ul>-->
-                <ul class="nav hidden-xs" id="sidebar-footer">
+                <ul class="nav" id="sidebar-footer">
                     <li>
                           <p><a href="http://pornmd.com/getliveterms">Data</a> from the <i class="glyphicon glyphicon-heart-empty"></i> <a href="http://pornmd.com">PORNMD Network</a></p>
                     </li>
@@ -328,8 +328,9 @@ h5.fap-segment {
                 if ($(this).attr("href").indexOf("//")==-1) {
                     console.log($(this.hash).offset().top);
                     event.preventDefault();
-                    $('#main').animate({scrollTop:$(this.hash).position().top}, 1200, 'swing');
                     $('body').animate({scrollTop:$('#sidebar').height()}, 1200, 'swing');
+                    $('#main').animate({scrollTop:$(this.hash).position().top}, 1200, 'swing');
+
                 }
             });
 
