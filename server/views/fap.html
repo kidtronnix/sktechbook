@@ -385,25 +385,12 @@ h5.fap-segment {
                         "segment_report": {
                             "terms": {
                                 "field": "segment"
-                            },
-                            "aggs": {
-                                "keywords": {
-                                    "terms": {
-                                        "field": "keyword",
-                                        "size": 3
-                                    }
-                                }
                             }
                         },
                         "global_keywords": {
                             "terms": {
                                 "field": "keyword",
                                 "size": 6
-                            }
-                        },
-                        "segments": {
-                            "terms": {
-                                "field": "segment"
                             }
                         }
                     }
