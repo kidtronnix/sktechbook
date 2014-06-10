@@ -20,6 +20,16 @@ module.exports = {
             name: 'cv'
         }
     },
+    cvFr: {
+        handler: function(request, reply){
+            reply.view('cv-print-fr', {
+                title: 'This is the example about page'
+            });
+        },
+        app: {
+            name: 'cvFr'
+        }
+    },
     fap: {
         handler: function(request, reply){
             reply.view('fap', {

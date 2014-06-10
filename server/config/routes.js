@@ -31,6 +31,11 @@ module.exports = function(server) {
         },
         {
             method: 'GET',
+            path: '/cv/fr',
+            config: controller.base.cvFr
+        },
+        {
+            method: 'GET',
             path: '/{path*}',
             config: controller.base.missing
         },
