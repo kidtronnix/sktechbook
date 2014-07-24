@@ -363,22 +363,29 @@ h5.fap-segment {
             function makePayload(search) {
                 var payload = {
                     "size": 10,
-                    "sort" : {
-                        "_script" : {
-                            "script" : "Math.random()",
-                            "type" : "number",
-                            "params" : {},
-                            "order" : "asc"
+                    "query": {
+                        "function_score": {
+                            "query": {
+                                "match_all": {}
+                            },
+                            "functions": [
+                                { 
+                                    "script_score": {"script": "random-score"}
+                                }
+                            ]
                         }
                     }
                 };
+                
+  
+  
+  
+
 
                 if(search) {
-                    var searchTemplate = {
+                    payload.query.function_score = {
                         "query" : { "query_string" : {"query" : "keyword:"+search} }
                     }
-
-                    $.extend( payload, searchTemplate );
                 }
 
                 // Add aggregations
