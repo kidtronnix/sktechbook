@@ -411,9 +411,9 @@ h5.fap-segment {
                 console.log(JSON.stringify(payload));
 
                 $.ajax({
-                    type: "POST",
+                    type: "GET",
                     url: esURL+"/liveterms/porn/_search",
-                    data: JSON.stringify(payload),
+                    // data: JSON.stringify(payload),
                     dataType: 'json'
                 })
                 .done(function( data ) {
