@@ -583,7 +583,7 @@ h5.fap-segment {
 
                 // Make percent
                 var per = (total/globalTotal)*100;
-                per = numeral(per).format('0.00');
+                per = numeral(per).format('0.00') + '%';
 
                 if($('#search_term').val() == '') {
                     per = '&nbsp;'
@@ -599,7 +599,7 @@ h5.fap-segment {
                 output += '<div class="col-xs-2">';
                 output += '<div class="pull-right">';
 
-                output += '<h3>'+per+'%</h3>';
+                output += '<h3>'+per+'</h3>';
                 output += '</div>';
                 output += '</div>';
                 output += '</div>';
