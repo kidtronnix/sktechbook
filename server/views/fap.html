@@ -585,6 +585,10 @@ h5.fap-segment {
                 var per = (total/globalTotal)*100;
                 per = numeral(per).format('0.00');
 
+                if($('#search_term').val() == '') {
+                    per = '&nbsp;'
+                }
+
 
                 var output = '<div class="row">';
                 output +=     '<div class="col-xs-10">';
@@ -594,9 +598,8 @@ h5.fap-segment {
                 output +=  '</div>';
                 output += '<div class="col-xs-2">';
                 output += '<div class="pull-right">';
-                if($('#search_term').val() !== '') {
-                    output += '<h3>'+per+'%</h3>';
-                }
+
+                output += '<h3>'+per+'%</h3>';
                 output += '</div>';
                 output += '</div>';
                 output += '</div>';
