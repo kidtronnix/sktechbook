@@ -594,7 +594,9 @@ h5.fap-segment {
                 output +=  '</div>';
                 output += '<div class="col-xs-2">';
                 output += '<div class="pull-right">';
-                output += '<h3>'+per+'%</h3>';
+                if($('#search_term').val() !== '') {
+                    output += '<h3>'+per+'%</h3>';
+                }
                 output += '</div>';
                 output += '</div>';
                 output += '</div>';
